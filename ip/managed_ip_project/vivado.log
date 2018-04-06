@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Apr  6 17:03:46 2018
+# Process ID: 12464
+# Current directory: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13460 C:\Users\KANG Jian\Desktop\video_trans_source\ip\managed_ip_project\managed_ip_project.xpr
+# Log file: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/vivado.log
+# Journal file: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 882.512 ; gain = 132.293
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 5.4 -module_name pll_25MHZ -dir {c:/Users/KANG Jian/Desktop/video_trans_source/ip}
+set_property -dict [list CONFIG.Component_Name {pll_25MHZ} CONFIG.CLK_IN1_BOARD_INTERFACE {sys_diff_clock} CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.000} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} CONFIG.USE_LOCKED {false} CONFIG.PRIM_SOURCE {Differential_clock_capable_pin} CONFIG.PRIM_IN_FREQ {200.000} CONFIG.CLKIN1_JITTER_PS {50.0} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {5.000} CONFIG.MMCM_CLKIN1_PERIOD {5.000} CONFIG.MMCM_CLKIN2_PERIOD {10.0} CONFIG.MMCM_CLKOUT0_DIVIDE_F {40.000} CONFIG.MMCM_CLKOUT1_DIVIDE {5} CONFIG.NUM_OUT_CLKS {2} CONFIG.CLKOUT1_JITTER {148.629} CONFIG.CLKOUT1_PHASE_ERROR {89.971} CONFIG.CLKOUT2_JITTER {98.146} CONFIG.CLKOUT2_PHASE_ERROR {89.971}] [get_ips pll_25MHZ]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'pll_25MHZ' to 'pll_25MHZ' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files {{c:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'pll_25MHZ'...
+generate_target all [get_files  {{c:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'pll_25MHZ'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'pll_25MHZ'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'pll_25MHZ'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'pll_25MHZ'...
+catch { config_ip_cache -export [get_ips -all pll_25MHZ] }
+export_ip_user_files -of_objects [get_files {{c:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{c:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}]
+launch_runs -jobs 16 pll_25MHZ_synth_1
+[Fri Apr  6 17:06:58 2018] Launched pll_25MHZ_synth_1...
+Run output will be captured here: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/pll_25MHZ_synth_1/runme.log
+export_simulation -of_objects [get_files {{c:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}] -directory {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files} -ipstatic_source_dir {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/modelsim} {questa=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/questa} {riviera=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/riviera} {activehdl=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Apr  6 17:10:44 2018...
