@@ -41,7 +41,7 @@
     (* mark_debug="true" *) wire [7:0] rx_data_out;
     (* mark_debug="true" *) wire byte_rxdv;
     (* mark_debug="true" *) wire data_out_valid;
-    (* mark_debug="true" *) wire [21:0] status;
+    (* mark_debug="true" *) wire [22:0] status;
     assign PHY_TX_CLK = g_clk;
  pll_25MHZ pll_25MHZ_inst(
     // Clock out ports

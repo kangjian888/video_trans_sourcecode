@@ -24,7 +24,7 @@ module ethernet_recieve(
     output reg [7:0] rx_data_out,
     output reg byte_rxdv,
     output reg data_out_valid,
-    output [21:0] status,//for debug, see the status of the FSM
+    output [22:0] status,//for debug, see the status of the FSM
     input [3:0] phy_rxd,
     input phy_rx_ctrl,
     input phy_rx_clk,
@@ -33,31 +33,32 @@ module ethernet_recieve(
     );
 
 parameter IDLE=22'd1,
-SIX_55_1=22'd2,
-SIX_55_2=22'd4,
-SIX_55_3=22'd8,
-SIX_55_4=22'd16,
-SIX_55_5=22'd32,
-SIX_55_6=22'd64,
-SPD_D5=22'd128,
-RX_BOARD_MAC_1=22'd256,
-RX_BOARD_MAC_2=22'd512,
-RX_BOARD_MAC_3=22'd1024,
-RX_BOARD_MAC_4=22'd2048,
-RX_BOARD_MAC_5=22'd4096,
-RX_BOARD_MAC_6=22'd8192,
-RX_PC_MAC_1=22'd16384,
-RX_PC_MAC_2=22'd32768,
-RX_PC_MAC_3=22'd65536,
-RX_PC_MAC_4=22'd131072,
-RX_PC_MAC_5=22'd262144,
-RX_PC_MAC_6=22'd524288,
-RX_DATA=22'd1048576,
-RX_FINISH=22'd2097152;
+SIX_55_1=23'd2,
+SIX_55_2=23'd4,
+SIX_55_3=23'd8,
+SIX_55_4=23'd16,
+SIX_55_5=23'd32,
+SIX_55_6=23'd64,
+SIX_55_7=23'd128,
+SPD_D5=23'd256,
+RX_BOARD_MAC_1=23'd512,
+RX_BOARD_MAC_2=23'd1024,
+RX_BOARD_MAC_3=23'd2048,
+RX_BOARD_MAC_4=23'd4096,
+RX_BOARD_MAC_5=23'd8192,
+RX_BOARD_MAC_6=23'd16384,
+RX_PC_MAC_1=23'd32768,
+RX_PC_MAC_2=23'd65536,
+RX_PC_MAC_3=23'd131072,
+RX_PC_MAC_4=23'd262144,
+RX_PC_MAC_5=23'd524288,
+RX_PC_MAC_6=23'd1048576,
+RX_DATA=23'd2097152,
+RX_FINISH=23'd4194304;
 reg [7:0] mybyte;
 reg sig;
-reg [47:0] board_mac;
-reg [47:0] pc_mac;
+(* mark_debug="true" *) reg [47:0] board_mac;
+(* mark_debug="true" *) reg [47:0] pc_mac;
 reg [10:0] package_byte_counter;//use for debug, check how many bytes in one package
 reg mac_matched;//the flag showing whether the mac address of the package is matched with the board mac address.
 always @ (posedge phy_rx_clk)
@@ -98,7 +99,7 @@ always @ (posedge phy_rx_clk)
 //if we do not add any protocol in this module
 //assign rx_data_out = bytedate;
 
-reg [21:0] current_state, next_state;//check whether the bit numbers are enough
+reg [22:0] current_state, next_state;//check whether the bit numbers are enough
 assign status = current_state;
 always @ (posedge phy_rx_clk or posedge reset)
     begin
@@ -202,6 +203,20 @@ always @ (*)//combinational logic
                     if(byte_rxdv&&!byte_sig)
                     begin
                         if(bytedate ==8'h55)
+                        next_state <= SIX_55_7;
+                        else 
+                        next_state <= IDLE;
+                    end
+                    else if(!byte_rxdv)
+                        next_state <= IDLE;
+                    else 
+                        next_state <= current_state;                    
+                 end
+             SIX_55_7:
+                 begin
+                    if(byte_rxdv&&!byte_sig)
+                    begin
+                        if(bytedate ==8'hd5)
                         next_state <= SPD_D5;
                         else 
                         next_state <= IDLE;
@@ -214,12 +229,7 @@ always @ (*)//combinational logic
              SPD_D5:
                  begin
                     if(byte_rxdv&&!byte_sig)
-                    begin
-                        if(bytedate ==8'hd5)
                         next_state <= RX_BOARD_MAC_1;
-                        else 
-                        next_state <= IDLE;
-                    end
                     else if(!byte_rxdv)
                         next_state <= IDLE;
                     else 
