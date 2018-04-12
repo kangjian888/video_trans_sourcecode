@@ -1,9 +1,9 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Fri Apr  6 17:07:50 2018
+-- Date        : Thu Apr 12 11:26:02 2018
 -- Host        : DESKTOP-B3RT09T running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {c:/Users/KANG
+-- Command     : write_vhdl -force -mode funcsim {C:/Users/KANG
 --               Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ_sim_netlist.vhdl}
 -- Design      : pll_25MHZ
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
@@ -97,7 +97,7 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       CLKOUT0_DUTY_CYCLE => 0.500000,
       CLKOUT0_PHASE => 0.000000,
       CLKOUT0_USE_FINE_PS => false,
-      CLKOUT1_DIVIDE => 5,
+      CLKOUT1_DIVIDE => 10,
       CLKOUT1_DUTY_CYCLE => 0.500000,
       CLKOUT1_PHASE => 0.000000,
       CLKOUT1_USE_FINE_PS => false,

@@ -257,18 +257,19 @@ always @ (*)
                 end
         endcase
     end
-
+reg counter;//flag
 always @ (posedge clk)
     begin
         case (next_state) 
             IDLE:
                 begin
                     tx_out <= 1'b1;
-                    tx_done_signal <= 1'b0;
                 end
             START_BIT:
                 begin
                     tx_out <= 1'b0;
+                    tx_done_signal <= 1'b0;
+                    counter <= 1'b0;
                 end
             DATA_BIT_1:
                 begin
@@ -305,8 +306,54 @@ always @ (posedge clk)
             STOP_BIT:
      	       	begin
      	       		tx_out <= 1'b1;
-     	       		tx_done_signal <= 1'b1;
+                    if(tx_done_signal ==1'b1)
+                        begin
+                            counter <= 1'b1;
+                            tx_done_signal <= 1'b0;
+                        end
+                    else 
+                        begin
+                            if(counter == 1'b0)
+                                begin
+                                    tx_done_signal <= 1'b1;
+                                end
+                            else
+                                begin
+                                    counter <= counter;
+                                    tx_done_signal <= 1'b0;
+                                end
+                        end
             	end
+                /*the below code can generate 2 cycle's done signal
+                //reg [1:0] counter;
+                //begin
+                    //tx_out <= 1'b1;
+                    //if(tx_done_signal ==1'b1)
+                        //begin
+                            //if(counter != 2'b01)
+                                //begin
+                                    //counter <= counter + 1'b1;
+                                //end
+                            //else 
+                                //begin
+                                    //counter <= counter;
+                                    //tx_done_signal <= 1'b0;
+                                //end
+                        //end
+                    //else 
+                        //begin
+                            //if(counter == 2'b00)
+                                //begin
+                                    //tx_done_signal <= 1'b1;
+                                //end
+                            //else
+                                //begin
+                                    //counter <= counter;
+                                    //tx_done_signal <= 1'b0;
+                                //end
+                        //end
+                //end
+                */
 
         endcase
     end

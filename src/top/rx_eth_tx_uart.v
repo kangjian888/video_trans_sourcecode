@@ -27,6 +27,8 @@
     input [3:0] PHY_RXD,
     output PHY_RESET_B,
     output PHY_TX_CLK,
+    output data_out_valid_debug,//for debug
+    output full,//for debug
     input PHY_RX_CLK,
     input SYSCLK_P,
     input SYSCLK_N,
@@ -35,17 +37,23 @@
 
 
     assign PHY_RESET_B = 1'b1;
-
+    assign data_out_valid_debug = data_out_valid;//for debug
     //output of 25mhz
-    wire g_clk;
+    wire eth_tx_clk;
+    //used by uart 100mhz
+    wire uart_tx_clk;
     (* mark_debug="true" *) wire [7:0] rx_data_out;
     (* mark_debug="true" *) wire byte_rxdv;
     (* mark_debug="true" *) wire data_out_valid;
     (* mark_debug="true" *) wire [22:0] status;
-    assign PHY_TX_CLK = g_clk;
+    (* mark_debug="true" *) wire [12:0] rd_data_count;
+    assign PHY_TX_CLK = eth_tx_clk;
+    wire rd_en;
+    assign rd_en =0;
  pll_25MHZ pll_25MHZ_inst(
     // Clock out ports
-    .clk_out1(g_clk),     // output clk_out1,25MHZ
+    .clk_out2(uart_tx_clk), //output clk_out2,100mhz
+    .clk_out1(eth_tx_clk),     // output clk_out1,25MHZ
     // Status and control signals
     .reset(reset), // the clock is always work
    // Clock in ports
@@ -64,4 +72,16 @@ ethernet_recieve ethernet_recieve_inst(
     .status(status)
     // output reg rx_er  //we could ingore it
     );
+
+ex_rx_uart_tx_fifo ex_rx_uart_tx_fifo_inst (
+  .wr_clk(PHY_RX_CLK),                // input wire wr_clk
+  .rd_clk(uart_tx_clk),                // input wire rd_clk
+  .din(rx_data_out),                      // input wire [7 : 0] din
+  .wr_en(data_out_valid),                  // input wire wr_en
+  .rd_en(rd_en),                  // input wire rd_en
+  //.dout(dout),                    // output wire [7 : 0] dout
+  .full(full),                    // output wire full
+  //.empty(empty),                  // output wire empty
+  .rd_data_count(rd_data_count)  // output wire [12 : 0] rd_data_count
+);
 endmodule

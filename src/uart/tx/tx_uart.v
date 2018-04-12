@@ -10,7 +10,7 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
+// In this module, our clock frequency is 100Mhz, the default boot rate is 20Mbps
 // Dependencies: 
 // 
 // Revision:
@@ -31,7 +31,7 @@ module tx_uart(
 wire bps_clk_half;
 wire bps_clk_total;
 tx_bps 
-#(.bps(1000000))
+#(.bps(20000000))
 tx_bps_inst(
 	.clk(clk),
 	.rst(rst),
