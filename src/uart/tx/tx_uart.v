@@ -31,12 +31,11 @@ module tx_uart(
 wire bps_clk_half;
 wire bps_clk_total;
 tx_bps 
-#(.bps(20000000))
+#(.bps(4_000_000))
 tx_bps_inst(
 	.clk(clk),
 	.rst(rst),
 	.count_signal(tx_enable_signal),
-	.bps_clk_half(bps_clk_half),
 	.bps_clk_total(bps_clk_total)
 	);
 
@@ -45,7 +44,6 @@ tx_control tx_control_inst(
 	.rst(rst),
 	.tx_enable_signal(tx_enable_signal),
 	.tx_data(tx_data),
-	.bps_clk_half(bps_clk_half),
 	.bps_clk_total(bps_clk_total),
 	.tx_out(tx_out),
 	.tx_done_signal(tx_done_signal)

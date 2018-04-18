@@ -24,12 +24,10 @@ module tx_bps(
     input clk,
     input rst,//high level is effective
     input count_signal,
-    output bps_clk_half,//the usage output
     output bps_clk_total
     );
 parameter bps = 115200;//baudrate of the module,the defaul number is 115200
 parameter integer total_counter = 1*100_000_000/bps-1;//this parameter cannot be changed,you must put the multiplication in the form place or the result is always zero
-parameter integer half_counter = total_counter/2;
 
 reg [14:0] counter;
 
@@ -43,7 +41,7 @@ always @ (posedge clk or posedge rst)
             begin
                 counter <= 15'd0;
             end
-        else if (count_signal) 
+        else if (!count_signal) 
             begin
                 counter <= counter + 1'b1;
             end
@@ -54,6 +52,5 @@ always @ (posedge clk or posedge rst)
 
     end
 
-assign bps_clk_half = (counter == half_counter) ? 1'b1 : 1'b0;
 assign bps_clk_total = (counter == total_counter) ? 1'b1 : 1'b0;
 endmodule

@@ -55,15 +55,14 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 ex_rx_uart_tx_fifo your_instance_name (
-  .wr_clk(wr_clk),                // input wire wr_clk
-  .rd_clk(rd_clk),                // input wire rd_clk
-  .din(din),                      // input wire [7 : 0] din
-  .wr_en(wr_en),                  // input wire wr_en
-  .rd_en(rd_en),                  // input wire rd_en
-  .dout(dout),                    // output wire [7 : 0] dout
-  .full(full),                    // output wire full
-  .empty(empty),                  // output wire empty
-  .rd_data_count(rd_data_count)  // output wire [12 : 0] rd_data_count
+  .wr_clk(wr_clk),  // input wire wr_clk
+  .rd_clk(rd_clk),  // input wire rd_clk
+  .din(din),        // input wire [7 : 0] din
+  .wr_en(wr_en),    // input wire wr_en
+  .rd_en(rd_en),    // input wire rd_en
+  .dout(dout),      // output wire [7 : 0] dout
+  .full(full),      // output wire full
+  .empty(empty)    // output wire empty
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

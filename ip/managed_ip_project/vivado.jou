@@ -2,19 +2,15 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Apr 12 11:24:10 2018
-# Process ID: 17132
+# Start of session at: Thu Apr 12 22:03:59 2018
+# Process ID: 504
 # Current directory: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7904 C:\Users\KANG Jian\Desktop\video_trans_source\ip\managed_ip_project\managed_ip_project.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18408 C:\Users\KANG Jian\Desktop\video_trans_source\ip\managed_ip_project\managed_ip_project.xpr
 # Log file: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/vivado.log
 # Journal file: C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project {C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.xpr}
-set_property -dict [list CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100.000} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKOUT1_DIVIDE {10} CONFIG.CLKOUT2_JITTER {112.316}] [get_ips pll_25MHZ]
-generate_target all [get_files  {{C:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}]
-catch { config_ip_cache -export [get_ips -all pll_25MHZ] }
-export_ip_user_files -of_objects [get_files {{C:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}] -no_script -sync -force -quiet
-reset_run pll_25MHZ_synth_1
-launch_runs -jobs 16 pll_25MHZ_synth_1
-export_simulation -of_objects [get_files {{C:/Users/KANG Jian/Desktop/video_trans_source/ip/pll_25MHZ/pll_25MHZ.xci}}] -directory {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files} -ipstatic_source_dir {C:/Users/KANG Jian/Desktop/video_trans_source/ip/ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/modelsim} {questa=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/questa} {riviera=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/riviera} {activehdl=C:/Users/KANG Jian/Desktop/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run ex_rx_uart_tx_fifo_synth_1
+launch_runs ex_rx_uart_tx_fifo_synth_1 -jobs 16
+wait_on_run ex_rx_uart_tx_fifo_synth_1

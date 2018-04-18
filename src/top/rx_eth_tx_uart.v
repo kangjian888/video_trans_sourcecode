@@ -29,6 +29,7 @@
     output PHY_TX_CLK,
     output data_out_valid_debug,//for debug
     output full,//for debug
+    output uart_tx,//the output of uart interface
     input PHY_RX_CLK,
     input SYSCLK_P,
     input SYSCLK_N,
@@ -40,16 +41,16 @@
     assign data_out_valid_debug = data_out_valid;//for debug
     //output of 25mhz
     wire eth_tx_clk;
-    //used by uart 100mhz
-    wire uart_tx_clk;
     (* mark_debug="true" *) wire [7:0] rx_data_out;
     (* mark_debug="true" *) wire byte_rxdv;
     (* mark_debug="true" *) wire data_out_valid;
     (* mark_debug="true" *) wire [22:0] status;
-    (* mark_debug="true" *) wire [12:0] rd_data_count;
     assign PHY_TX_CLK = eth_tx_clk;
+    //used by uart 100mhz
+    wire uart_tx_clk;
     wire rd_en;
-    assign rd_en =0;
+    wire [7:0] dout;
+    wire empty;
  pll_25MHZ pll_25MHZ_inst(
     // Clock out ports
     .clk_out2(uart_tx_clk), //output clk_out2,100mhz
@@ -73,15 +74,23 @@ ethernet_recieve ethernet_recieve_inst(
     // output reg rx_er  //we could ingore it
     );
 
-ex_rx_uart_tx_fifo ex_rx_uart_tx_fifo_inst (
+ex_rx_uart_tx_fifo ex_rx_uart_tx_fifo_inst (//thers's no reset in fifo module
   .wr_clk(PHY_RX_CLK),                // input wire wr_clk
   .rd_clk(uart_tx_clk),                // input wire rd_clk
   .din(rx_data_out),                      // input wire [7 : 0] din
   .wr_en(data_out_valid),                  // input wire wr_en
   .rd_en(rd_en),                  // input wire rd_en
-  //.dout(dout),                    // output wire [7 : 0] dout
+  .dout(dout),                    // output wire [7 : 0] dout
   .full(full),                    // output wire full
-  //.empty(empty),                  // output wire empty
-  .rd_data_count(rd_data_count)  // output wire [12 : 0] rd_data_count
+  .empty(empty)                  // output wire empty
+);
+
+tx_uart tx_uart_inst(
+ .clk(uart_tx_clk),
+ .rst(reset),
+ .tx_out(uart_tx),
+ .tx_enable_signal(empty),//if the fifo is not empty, the signal will be sented continously
+ .tx_done_signal(rd_en),//low signal active
+ .tx_data(dout)
 );
 endmodule

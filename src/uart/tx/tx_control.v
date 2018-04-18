@@ -24,7 +24,6 @@ module tx_control(
     input clk,
     input rst,//high level is effect
     input [7:0] tx_data,
-    input bps_clk_half,
     input bps_clk_total,
     input tx_enable_signal,
     output reg tx_out,
@@ -61,7 +60,7 @@ always @ (*)
         case (current_state) 
             IDLE:
                 begin
-                    if (tx_enable_signal) 
+                    if (!tx_enable_signal) 
                         begin
                             next_state <= START_BIT;
                         end
@@ -72,7 +71,7 @@ always @ (*)
                 end
             START_BIT:
                 begin
-                    if (tx_enable_signal) 
+                    if (!tx_enable_signal) 
                         begin
                             if (bps_clk_total) 
                                 begin
@@ -90,7 +89,7 @@ always @ (*)
                 end
             DATA_BIT_1:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -108,7 +107,7 @@ always @ (*)
             	end
             DATA_BIT_2:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -126,7 +125,7 @@ always @ (*)
             	end
             DATA_BIT_3:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -144,7 +143,7 @@ always @ (*)
             	end
             DATA_BIT_4:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -162,7 +161,7 @@ always @ (*)
             	end
             DATA_BIT_5:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -180,7 +179,7 @@ always @ (*)
             	end
             DATA_BIT_6:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -198,7 +197,7 @@ always @ (*)
             	end
             DATA_BIT_7:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -216,7 +215,7 @@ always @ (*)
             	end
             DATA_BIT_8:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
@@ -234,7 +233,7 @@ always @ (*)
             	end
             STOP_BIT:
             	begin
-            		if (tx_enable_signal) 
+            		if (!tx_enable_signal) 
             		    begin
             		        if (bps_clk_total) 
             		            begin
