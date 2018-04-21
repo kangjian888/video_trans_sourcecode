@@ -28,7 +28,7 @@ module rx_bps(
     output bps_clk_total
     );
 parameter bps = 115200;//baudrate of the module,the defaul number is 115200
-parameter integer total_counter = 1*200000000/bps-1;//this parameter cannot be changed,you must put the multiplication in the form place or the result is always zero
+parameter integer total_counter = 1*100_000_000/bps-1;//this parameter cannot be changed,you must put the multiplication in the form place or the result is always zero
 parameter integer half_counter = total_counter/2-1;
 
 reg [14:0] counter;

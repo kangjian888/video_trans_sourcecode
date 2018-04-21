@@ -44,7 +44,7 @@ wire count_signal;
 
 rx_bps 
 	#(
-		.bps(1000000)
+		.bps(4_000_000)
 	 )
 rx_bps_inst(
 	.clk(clk),
