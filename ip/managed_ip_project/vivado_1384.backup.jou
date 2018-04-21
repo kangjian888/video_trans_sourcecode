@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Apr 21 04:50:36 2018
+# Process ID: 1384
+# Current directory: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7476 C:\Users\KANG Jian\Desktop\video_trans_pro\video_trans_source\ip\managed_ip_project\managed_ip_project.xpr
+# Log file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/vivado.log
+# Journal file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.xpr}
