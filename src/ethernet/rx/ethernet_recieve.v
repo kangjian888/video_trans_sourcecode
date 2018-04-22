@@ -417,7 +417,7 @@ always @ (posedge phy_rx_clk)
                 end
             RX_PC_MAC_1:
                 begin
-                   if(board_mac == 40'h000a3501fec0)//the mac address of the board. you could modify it by yourself
+                   if(board_mac == 40'h309c231eec21)//the mac address of the board. you could modify it by yourself
                    mac_matched <= 1'b1;
                    else 
                    mac_matched <= 1'b0;
