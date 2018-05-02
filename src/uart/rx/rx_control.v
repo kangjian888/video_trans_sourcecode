@@ -43,7 +43,8 @@ DATA_BIT_5 = 4'b0110,
 DATA_BIT_6 = 4'b0111,
 DATA_BIT_7 = 4'b1000,
 DATA_BIT_8 = 4'b1001,
-STOP_BIT = 4'b1010
+STOP_BIT_1 = 4'b1010,//generate rx_done_signal
+STOP_BIT_2 = 4'b1011//keep rx_data for long time to keep fifo having right value
 ;
 
 reg [3:0] current_state, next_state;
@@ -232,7 +233,7 @@ always @ (*)
                        begin
                            if (bps_clk_total) 
                                begin
-                                   next_state <= STOP_BIT;
+                                   next_state <= STOP_BIT_1;
                                end
                            else 
                                begin
@@ -244,24 +245,28 @@ always @ (*)
                            next_state <= IDLE;
                        end   
                 end
-            STOP_BIT:
+            STOP_BIT_1:
                 begin
-                    if(rx_enable_signal)
-                        begin
-                            if(bps_clk_half)//just wait for half stop bit, avoid lost any data
-                                begin
-                                    next_state <= IDLE;
-                                end
-                            else 
-                                begin
-                                    next_state <= current_state;
-                                end
-                        end
-                    else 
-                        begin
-                            next_state <= IDLE;
-                        end
+                  next_state <= STOP_BIT_2;
                 end
+            STOP_BIT_2:
+            	begin
+            		if(rx_enable_signal)
+            			begin
+            				if (bps_clk_half) 
+            				    begin
+            				        next_state <= IDLE;
+            				    end
+            				else 
+            				    begin
+            				        next_state <= current_state;
+            				    end
+            			end
+            		else 
+            		    begin
+            		        next_state <= IDLE;
+            		    end
+            	end
             default:
                 begin
                     next_state <= IDLE;
@@ -338,10 +343,14 @@ always @ (posedge clk)
                 else 
                 rx_data <= rx_data;
                 end
-            STOP_BIT:
+            STOP_BIT_1:
                 begin
-                rx_done_signal <= 1'b1;
+                  rx_done_signal <= 1'b1; 
                 end
+            STOP_BIT_2:
+            	begin
+            		rx_done_signal <= 1'b0;
+            	end
             default:
                 begin
                     rx_data <= 8'b00000000;

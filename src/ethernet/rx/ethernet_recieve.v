@@ -57,8 +57,8 @@ RX_DATA=23'd2097152,
 RX_FINISH=23'd4194304;
 reg [7:0] mybyte;
 reg sig;
-(* mark_debug="true" *) reg [47:0] board_mac;
-(* mark_debug="true" *) reg [47:0] pc_mac;
+reg [47:0] board_mac;
+reg [47:0] pc_mac;
 reg [10:0] package_byte_counter;//use for debug, check how many bytes in one package
 reg mac_matched;//the flag showing whether the mac address of the package is matched with the board mac address.
 always @ (posedge phy_rx_clk)
@@ -417,7 +417,7 @@ always @ (posedge phy_rx_clk)
                 end
             RX_PC_MAC_1:
                 begin
-                   if(board_mac == 40'h309c231eec21)//the mac address of the board. you could modify it by yourself
+                   if(board_mac == 48'h309c231eec21)//the mac address of the board. you could modify it by yourself
                    mac_matched <= 1'b1;
                    else 
                    mac_matched <= 1'b0;

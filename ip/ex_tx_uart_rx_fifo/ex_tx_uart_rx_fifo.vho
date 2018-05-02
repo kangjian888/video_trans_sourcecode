@@ -62,7 +62,7 @@ COMPONENT ex_tx_uart_rx_fifo
     dout : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     full : OUT STD_LOGIC;
     empty : OUT STD_LOGIC;
-    prog_empty : OUT STD_LOGIC
+    rd_data_count : OUT STD_LOGIC_VECTOR(16 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -81,7 +81,7 @@ your_instance_name : ex_tx_uart_rx_fifo
     dout => dout,
     full => full,
     empty => empty,
-    prog_empty => prog_empty
+    rd_data_count => rd_data_count
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

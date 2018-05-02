@@ -25,10 +25,10 @@ module ethernet_tx(
 	input clk,//the 25MHZ clock signal
 	input [7:0] datain,//the input of ethernet data
 	input rst,//the reset signal
-	input data_valid, //if the data valid is one, the module can get data from fifo or other memory
+	output reg data_request, //the module will get new data from FIFO
 	input send_enale, //after every cycle output, if the signal on this line is high, we will begin next cycle sending
-	output tx_ctrl,
-	output [3:0] phy_txd//the PHY chip
+	output reg tx_ctrl,
+	output reg [3:0] phy_txd//the PHY chip
     );
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -129,16 +129,18 @@ always @ (*)
         	begin
         		if(send_enale == 1'b1)
         		state_next = START;
+        		cnt_next = 11'd0;
         	end
         START:
         	begin
 				datain_next = datain;//preparing the data, FIFO is the FWFT model
         		if(send_enale == 1'b1)
         			begin
-        				if(cnt_reg == 6'd39)
+        				if(cnt_reg == 11'd39)
 							begin
 								state_next = SEND_DATA;
 								cnt_next = 0;
+								datain_next = datain;
 							end 
 						else
 							begin
@@ -170,11 +172,20 @@ always @ (*)
 				else
 					begin
 						if(flag_reg == 1'b0)
-						cnt_next =  cnt_reg + 1'b1;
+							begin
+								flag_next = 1'b1;
+							end
+						else
+							begin
+								flag_next = 1'b0;
+								cnt_next =  cnt_reg + 1'b1;
+								datain_next = datain; //the data input
+							end
 					end
 
 			end
 
+    	endcase
     end
 
 //----------------------------------------------------------------------------------------------------------------------------
@@ -182,8 +193,77 @@ always @ (*)
 //---------------------------------------------------------------------------------------------------------------------------
 always @ (*)
 	begin
-		case(state_next)
-
+		case(state_reg)//if we use combinational logic, state_reg is ok.
+		IDLE:
+			begin
+				tx_ctrl = 1'b0;
+				data_request = 1'b0;
+				phy_txd = 4'd0;
+			end
+		START:
+			begin
+				if(send_enale == 1)
+					begin
+						if(cnt_reg == 11'd38)
+							begin
+								tx_ctrl = 1'b1;
+								data_request = 1'b1;
+								phy_txd = prefix_code[cnt_reg];
+							end
+						else 
+						    begin
+						        tx_ctrl = 1'b1;
+						        data_request =  1'b0;
+						        phy_txd = prefix_code[cnt_reg];
+						    end
+					end
+				else 
+				    begin
+				        tx_ctrl = 1'b0;
+				        data_request = 1'b0;
+				        phy_txd = 4'd0;
+				    end
+			end
+		SEND_DATA:
+			begin
+				if(cnt_reg == 11'd1349)
+					begin
+						if(flag_reg == 1'b0)
+							begin
+								phy_txd = datain_reg [3:0];
+								data_request = 1'b0;
+								tx_ctrl = 1'b1;
+							end
+						else 
+				    		begin
+				        		phy_txd = datain_reg [7:4];
+				        		data_request = 1'b0;
+				        		tx_ctrl = 1'b1;
+				    		end
+					end
+				else 
+				    begin
+						if(flag_reg == 1'b0)
+							begin
+								phy_txd = datain_reg [3:0];
+								data_request = 1'b1;
+								tx_ctrl = 1'b1;
+							end
+						else 
+				    		begin
+				        		phy_txd = datain_reg [7:4];
+				        		data_request = 1'b0;
+				        		tx_ctrl = 1'b1;
+				    		end				        
+				    end
+			end
+		default:
+			begin
+				tx_ctrl = 1'b0;
+				data_request = 1'b0;
+				phy_txd = 4'd0;
+			end
+		endcase
 	end
 
 endmodule

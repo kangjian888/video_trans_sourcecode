@@ -201,7 +201,7 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_PROG_FLAGS_WACH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_PROG_FLAGS_WDCH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_PROG_FLAGS_WRCH">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_RD_DATA_COUNT">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_RD_DATA_COUNT">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_RD_RST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_RST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_HAS_SLAVE_CE">0</spirit:configurableElementValue>
@@ -235,15 +235,15 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PRIM_FIFO_TYPE_WACH">512x36</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PRIM_FIFO_TYPE_WDCH">1kx36</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PRIM_FIFO_TYPE_WRCH">512x36</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL">1349</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH">1022</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_NEGATE_VAL">1350</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_TYPE">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_THRESH_NEGATE_VAL">3</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_TYPE">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_TYPE_AXIS">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_TYPE_RACH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_PROG_EMPTY_TYPE_RDCH">0</spirit:configurableElementValue>
@@ -334,14 +334,14 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Disable_Timing_Violations">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Disable_Timing_Violations_AXI">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Dout_Reset_Value">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value">1349</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_axis">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_rach">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_rdch">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_wach">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_wdch">1022</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Assert_Value_wrch">1022</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Negate_Value">1350</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Empty_Threshold_Negate_Value">3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Enable_Common_Overflow">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Enable_Common_Underflow">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Enable_Data_Counts_axis">false</spirit:configurableElementValue>
@@ -421,7 +421,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Overflow_Sense_AXI">Active_High</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PROTOCOL">AXI4</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Performance_Options">Standard_FIFO</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Programmable_Empty_Type">Single_Programmable_Empty_Threshold_Constant</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Programmable_Empty_Type">No_Programmable_Empty_Threshold</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Programmable_Empty_Type_axis">No_Programmable_Empty_Threshold</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Programmable_Empty_Type_rach">No_Programmable_Empty_Threshold</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Programmable_Empty_Type_rdch">No_Programmable_Empty_Threshold</spirit:configurableElementValue>
@@ -438,7 +438,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.READ_WRITE_MODE">READ_WRITE</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.RUSER_Width">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Read_Clock_Frequency">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Read_Data_Count">false</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Read_Data_Count">true</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Read_Data_Count_Width">17</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Register_Slice_Mode_axis">Fully_Registered</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Register_Slice_Mode_rach">Fully_Registered</spirit:configurableElementValue>
@@ -526,7 +526,9 @@
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Input_Depth" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Output_Data_Width" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Output_Depth" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Performance_Options" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Programmable_Empty_Type" xilinx:valueSource="user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Read_Data_Count" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Read_Data_Count_Width" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Reset_Pin" xilinx:valueSource="user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Reset_Type" xilinx:valueSource="user"/>

@@ -4,3 +4,13 @@ set_property PACKAGE_PIN V18 [get_ports PHY_RESET_B]
 set_property IOSTANDARD LVCMOS18 [get_ports PHY_RESET_B]
 
 
+set_property PACKAGE_PIN T15 [get_ports PHY_TX_CTRL]
+set_property IOSTANDARD HSTL_I_18 [get_ports PHY_TX_CTRL]
+set_property PACKAGE_PIN T17 [get_ports PHY_TXD[3]]
+set_property IOSTANDARD HSTL_I_18 [get_ports PHY_TXD[3]]
+set_property PACKAGE_PIN T18 [get_ports PHY_TXD[2]]
+set_property IOSTANDARD HSTL_I_18 [get_ports PHY_TXD[2]]
+set_property PACKAGE_PIN U15 [get_ports PHY_TXD[1]]
+set_property IOSTANDARD HSTL_I_18 [get_ports PHY_TXD[1]]
+set_property PACKAGE_PIN U16 [get_ports PHY_TXD[0]]
+set_property IOSTANDARD HSTL_I_18 [get_ports PHY_TXD[0]]

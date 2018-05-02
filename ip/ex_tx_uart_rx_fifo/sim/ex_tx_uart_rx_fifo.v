@@ -62,7 +62,7 @@ module ex_tx_uart_rx_fifo (
   dout,
   full,
   empty,
-  prog_empty
+  rd_data_count
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME write_clk, FREQ_HZ 100000000, PHASE 0.000" *)
@@ -83,7 +83,7 @@ output wire [7 : 0] dout;
 output wire full;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 FIFO_READ EMPTY" *)
 output wire empty;
-output wire prog_empty;
+output wire [16 : 0] rd_data_count;
 
   fifo_generator_v13_2_1 #(
     .C_COMMON_CLOCK(0),
@@ -104,7 +104,7 @@ output wire prog_empty;
     .C_HAS_INT_CLK(0),
     .C_HAS_MEMINIT_FILE(0),
     .C_HAS_OVERFLOW(0),
-    .C_HAS_RD_DATA_COUNT(0),
+    .C_HAS_RD_DATA_COUNT(1),
     .C_HAS_RD_RST(0),
     .C_HAS_RST(0),
     .C_HAS_SRST(0),
@@ -122,9 +122,9 @@ output wire prog_empty;
     .C_PRELOAD_LATENCY(1),
     .C_PRELOAD_REGS(0),
     .C_PRIM_FIFO_TYPE("8kx4"),
-    .C_PROG_EMPTY_THRESH_ASSERT_VAL(1349),
-    .C_PROG_EMPTY_THRESH_NEGATE_VAL(1350),
-    .C_PROG_EMPTY_TYPE(1),
+    .C_PROG_EMPTY_THRESH_ASSERT_VAL(2),
+    .C_PROG_EMPTY_THRESH_NEGATE_VAL(3),
+    .C_PROG_EMPTY_TYPE(0),
     .C_PROG_FULL_THRESH_ASSERT_VAL(131069),
     .C_PROG_FULL_THRESH_NEGATE_VAL(131068),
     .C_PROG_FULL_TYPE(0),
@@ -321,10 +321,10 @@ output wire prog_empty;
     .valid(),
     .underflow(),
     .data_count(),
-    .rd_data_count(),
+    .rd_data_count(rd_data_count),
     .wr_data_count(),
     .prog_full(),
-    .prog_empty(prog_empty),
+    .prog_empty(),
     .sbiterr(),
     .dbiterr(),
     .wr_rst_busy(),

@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sun Apr 22 09:08:08 2018
+# Process ID: 5092
+# Current directory: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5824 C:\Users\KANG Jian\Desktop\video_trans_pro\video_trans_source\ip\ex_tx_uart_rx_fifo\ex_tx_uart_rx_fifo.dcp
+# Log file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/vivado.log
+# Journal file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_checkpoint {C:\Users\KANG Jian\Desktop\video_trans_pro\video_trans_source\ip\ex_tx_uart_rx_fifo\ex_tx_uart_rx_fifo.dcp}
+Command: open_checkpoint {C:\Users\KANG Jian\Desktop\video_trans_pro\video_trans_source\ip\ex_tx_uart_rx_fifo\ex_tx_uart_rx_fifo.dcp}
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 767.617 ; gain = 0.000
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/Vivado/2017.4/data/ip'.
+INFO: [Netlist 29-17] Analyzing 59 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/.Xil/Vivado-5092-DESKTOP-B3RT09T/dcp1/ex_tx_uart_rx_fifo_late.xdc]
+Finished Parsing XDC File [C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/.Xil/Vivado-5092-DESKTOP-B3RT09T/dcp1/ex_tx_uart_rx_fifo_late.xdc]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2017.4 (64-bit) build 2086221
+open_checkpoint: Time (s): cpu = 00:00:38 ; elapsed = 00:00:21 . Memory (MB): peak = 1343.098 ; gain = 579.664
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 22 09:08:59 2018...

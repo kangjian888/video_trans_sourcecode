@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Apr 21 19:34:14 2018
+# Process ID: 14036
+# Current directory: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7208 C:\Users\KANG Jian\Desktop\video_trans_pro\video_trans_source\ip\managed_ip_project\managed_ip_project.xpr
+# Log file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/vivado.log
+# Journal file: C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.xpr}
+create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name ex_tx_uart_rx_fifo -dir {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip}
+set_property -dict [list CONFIG.Component_Name {ex_tx_uart_rx_fifo} CONFIG.Fifo_Implementation {Independent_Clocks_Block_RAM} CONFIG.Input_Data_Width {8} CONFIG.Input_Depth {131072} CONFIG.Output_Data_Width {8} CONFIG.Output_Depth {131072} CONFIG.Reset_Pin {false} CONFIG.Reset_Type {Asynchronous_Reset} CONFIG.Full_Flags_Reset_Value {0} CONFIG.Use_Dout_Reset {false} CONFIG.Almost_Full_Flag {false} CONFIG.Almost_Empty_Flag {true} CONFIG.Data_Count_Width {17} CONFIG.Write_Data_Count_Width {17} CONFIG.Read_Data_Count_Width {17} CONFIG.Full_Threshold_Assert_Value {131069} CONFIG.Full_Threshold_Negate_Value {131068} CONFIG.Programmable_Empty_Type {Single_Programmable_Empty_Threshold_Constant} CONFIG.Empty_Threshold_Assert_Value {1349} CONFIG.Empty_Threshold_Negate_Value {1350} CONFIG.Enable_Safety_Circuit {false}] [get_ips ex_tx_uart_rx_fifo]
+generate_target {instantiation_template} [get_files {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}]
+generate_target all [get_files  {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}]
+catch { config_ip_cache -export [get_ips -all ex_tx_uart_rx_fifo] }
+export_ip_user_files -of_objects [get_files {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}]
+launch_runs -jobs 16 ex_tx_uart_rx_fifo_synth_1
+export_simulation -of_objects [get_files {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}] -directory {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files} -ipstatic_source_dir {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/modelsim} {questa=C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/questa} {riviera=C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/riviera} {activehdl=C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet

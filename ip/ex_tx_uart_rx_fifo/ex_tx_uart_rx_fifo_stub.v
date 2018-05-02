@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sat Apr 21 20:18:06 2018
+// Date        : Tue May  1 10:37:15 2018
 // Host        : DESKTOP-B3RT09T running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub {C:/Users/KANG
 //               Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}
@@ -15,8 +15,8 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "fifo_generator_v13_2_1,Vivado 2017.4" *)
 module ex_tx_uart_rx_fifo(wr_clk, rd_clk, din, wr_en, rd_en, dout, full, empty, 
-  prog_empty)
-/* synthesis syn_black_box black_box_pad_pin="wr_clk,rd_clk,din[7:0],wr_en,rd_en,dout[7:0],full,empty,prog_empty" */;
+  rd_data_count)
+/* synthesis syn_black_box black_box_pad_pin="wr_clk,rd_clk,din[7:0],wr_en,rd_en,dout[7:0],full,empty,rd_data_count[16:0]" */;
   input wr_clk;
   input rd_clk;
   input [7:0]din;
@@ -25,5 +25,5 @@ module ex_tx_uart_rx_fifo(wr_clk, rd_clk, din, wr_en, rd_en, dout, full, empty,
   output [7:0]dout;
   output full;
   output empty;
-  output prog_empty;
+  output [16:0]rd_data_count;
 endmodule

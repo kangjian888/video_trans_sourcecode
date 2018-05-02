@@ -32,7 +32,7 @@ set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:ac701:part0:1.3 [current_project]
 set_property ip_output_repo {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}
+read_ip -quiet {{C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_clocks.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_ooc.xdc}}]
@@ -87,32 +87,32 @@ write_checkpoint -force -noxdef ex_tx_uart_rx_fifo.dcp
 create_report "ex_tx_uart_rx_fifo_synth_1_synth_report_utilization_0" "report_utilization -file ex_tx_uart_rx_fifo_utilization_synth.rpt -pb ex_tx_uart_rx_fifo_utilization_synth.pb"
 
 if { [catch {
-  file copy -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo.dcp} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.dcp}
+  file copy -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo.dcp} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.dcp}
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}
+  write_verilog -force -mode synth_stub {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}
+  write_vhdl -force -mode synth_stub {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.v}
+  write_verilog -force -mode funcsim {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.vhdl}
+  write_vhdl -force -mode funcsim {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -122,32 +122,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo.dcp} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.dcp}
+  file copy -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo.dcp} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo.dcp}
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_stub.v} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}
+  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_stub.v} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_stub.vhdl} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}
+  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_stub.vhdl} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_sim_netlist.v} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.v}
+  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_sim_netlist.v} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_sim_netlist.vhdl} {c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.vhdl}
+  file rename -force {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/managed_ip_project/managed_ip_project.runs/ex_tx_uart_rx_fifo_synth_1/ex_tx_uart_rx_fifo_sim_netlist.vhdl} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_sim_netlist.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -156,12 +156,12 @@ if { [catch {
 
 if {[file isdir {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}]} {
   catch { 
-    file copy -force {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}
+    file copy -force {{C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.v}} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}
   }
 }
 
 if {[file isdir {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}]} {
   catch { 
-    file copy -force {{c:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}
+    file copy -force {{C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ex_tx_uart_rx_fifo/ex_tx_uart_rx_fifo_stub.vhdl}} {C:/Users/KANG Jian/Desktop/video_trans_pro/video_trans_source/ip/ip_user_files/ip/ex_tx_uart_rx_fifo}
   }
 }

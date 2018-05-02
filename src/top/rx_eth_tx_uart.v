@@ -27,7 +27,7 @@
     input [3:0] PHY_RXD,
     output PHY_RESET_B,
     output PHY_TX_CLK,
-    output data_out_valid_debug,//for debug
+    //output data_out_valid_debug,//for debug
     output full,//for debug
     output uart_tx,//the output of uart interface
     input PHY_RX_CLK,
@@ -36,15 +36,16 @@
     input reset //system reset
     );
 
-
+ 	//(*mark_debug = "true"*) wire uart_tx_debug;//for debug
+ 	//assign uart_tx_debug = uart_tx;//for debug
     assign PHY_RESET_B = 1'b1;
-    assign data_out_valid_debug = data_out_valid;//for debug
+    //assign data_out_valid_debug = data_out_valid;//for debug
     //output of 25mhz
     wire eth_tx_clk;
-    (* mark_debug="true" *) wire [7:0] rx_data_out;
-    (* mark_debug="true" *) wire byte_rxdv;
-    (* mark_debug="true" *) wire data_out_valid;
-    (* mark_debug="true" *) wire [22:0] status;
+    wire [7:0] rx_data_out;
+    wire byte_rxdv;
+    wire data_out_valid;
+    wire [22:0] status;
     assign PHY_TX_CLK = eth_tx_clk;
     //used by uart 100mhz
     wire uart_tx_clk;
